@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ai-call-agent
+    env: node
+    region: singapore  # India ke sabse pass
+    plan: free
+    buildCommand: npm install && cd backend && npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_NUMBER
+        sync: false
+      - key: NODE_ENV
+        value: production
